@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Before/After Slider Tool</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Before / After Slider</h1>
+
+<div class="controls">
+  <label>
+    Image "Before" (URL image adress from marbella-ev.com):
+    <input class="display-none" type="file" id="beforeFile" accept="image/*">
+    <input type="url" id="beforeUrl" placeholder="https://...">
+  </label>
+
+  <label>
+    Image "After" (URL image adress from marbella-ev.com):
+    <input class="display-none" type="file" id="afterFile" accept="image/*">
+    <input type="url" id="afterUrl" placeholder="https://...">
+  </label>
+
+  <button id="loadImages">Create slider</button>
+  <button id="generateIframe">Generate iframe code</button>
+  <textarea id="iframeCode" readonly style="width:100%; height:120px; margin-top:10px;"></textarea>
+</div>
+
+<div id="sliderContainer"></div>
+
+<span class="watermark">Created by Carlos Manso</span>
+<span class="watermark">ENGEL & VÖLKERS MARBELLA</span>
+
+<script src="script.js"></script>
+<script>
+const container = document.getElementById('sliderContainer');
+
+const getImageSrc = (fileInput, urlInput) => {
+  if (fileInput.files[0]) return URL.createObjectURL(fileInput.files[0]);
+  return urlInput.value;
+};
+
+document.getElementById('loadImages').addEventListener('click', () => {
+  const beforeSrc = getImageSrc(document.getElementById('beforeFile'), document.getElementById('beforeUrl'));
+  const afterSrc = getImageSrc(document.getElementById('afterFile'), document.getElementById('afterUrl'));
+
+  if (!beforeSrc || !afterSrc) { alert('Debes cargar ambas imágenes'); return; }
+
+  container.innerHTML = `
+    <div class="ba-slider">
+      <img src="${afterSrc}" class="ba-after">
+      <img src="${beforeSrc}" class="ba-before">
+      <div class="ba-handle"></div>
+    </div>
+  `;
+
+  initSlider();
+});
+
+/* ===== BOTON IFRAME ===== */
+document.getElementById('generateIframe').addEventListener('click', () => {
+  const beforeSrc = getImageSrc(document.getElementById('beforeFile'), document.getElementById('beforeUrl'));
+  const afterSrc = getImageSrc(document.getElementById('afterFile'), document.getElementById('afterUrl'));
+
+  if (!beforeSrc || !afterSrc) { alert('Debes cargar ambas imágenes'); return; }
+
+  const embedUrl = `${window.location.origin}/VHS-Slider/embed.html?before=${encodeURIComponent(beforeSrc)}&after=${encodeURIComponent(afterSrc)}`;
+  const code = `<iframe src="${embedUrl}" width="100%" height="100%" frameborder="0" scrolling="no" loading="lazy"></iframe>`;
+  document.getElementById('iframeCode').value = code;
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Before/After Slider Embed</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<div class="ba-slider">
+  <img src="" id="afterEmbed" class="ba-after">
+  <img src="" id="beforeEmbed" class="ba-before">
+  <div class="ba-handle"></div>
+</div>
+
+<script src="./script.js
+"></script>
+<script>
+const params = new URLSearchParams(window.location.search);
+const before = params.get('before');
+const after = params.get('after');
+
+if (before) document.getElementById('beforeEmbed').src = before;
+if (after) document.getElementById('afterEmbed').src = after;
+
+initSlider();
+</script>
+
+</body>
+</html>
