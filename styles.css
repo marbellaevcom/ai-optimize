@@ -1,4 +1,10 @@
-body{
+body {
+  font-family: system-ui, sans-serif;
+  padding: 30px;
+  background: #f7f7f7;
+}
+
+.body-embed{
 	font-family: system-ui, sans-serif;
 	background: #f7f7f7;
 	text-align: center;
@@ -111,4 +117,5 @@ button {
 
 .display-none{
   display: none;
+
 }
