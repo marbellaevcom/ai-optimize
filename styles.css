@@ -48,9 +48,9 @@ button {
   cursor: pointer;
 }
 
-#sliderContainer {
+/* #sliderContainer {
   max-width: 700px;
-}
+} */
 
 /* === Slider === */
 .ba-slider {
