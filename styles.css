@@ -152,6 +152,15 @@ button {
   top: 15px;
   right: 15px;
   pointer-events: none; 
+  user-select: none;
+  -webkit-user-select: none;
+  
+  /* Evita que aparezca el recuadro azul/contorno al hacer clic */
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  
+  /* Asegura que los clics pasen a través del SVG al slider */
+  pointer-events: none;
 }
 
 @media (max-width: 1050px) {
