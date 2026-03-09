@@ -119,3 +119,43 @@ button {
   display: none;
 
 }
+
+
+
+.label-before, .label-after {
+  position: absolute;
+  top: 15px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  border-radius: 4px;
+  z-index: 4; 
+  pointer-events: none; 
+  letter-spacing: 1px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+
+.label-before {
+  left: 15px;
+  background-color: #797979; 
+}
+
+
+.label-after {
+  right: 15px;
+  background-color: #000000; 
+}
+
+
+.label-before {
+  clip-path: inherit; 
+}
+
+@media (max-width: 1050px) {
+  .label-before, .label-after {
+    font-size: 9px;
+  }
+}
