@@ -63,7 +63,7 @@ button {
 	max-height: 100%;
 }
 
-.ba-slider img {
+.ba-slider img:not(.label-after) {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -122,7 +122,7 @@ button {
 
 
 
-.label-before, .label-after {
+/* .label-before, .label-after {
   position: absolute;
   top: 15px;
   padding: 6px 12px;
@@ -141,16 +141,28 @@ button {
 .label-before {
   left: 15px;
   background-color: #797979; 
-}
+} */
 
 
 .label-after {
+  width: 150px;
+  height: 40px;
+  z-index: 4;
+  position: absolute;
+  top: 15px;
   right: 15px;
-  background-color: #000000; 
+  pointer-events: none; 
 }
 
+@media (max-width: 1050px) {
+  .label-after {
+    width: 70px;
+    height: 20px;
+  }
+} 
 
-.label-before {
+
+/* .label-before {
   clip-path: inherit; 
 }
 
@@ -158,4 +170,4 @@ button {
   .label-before, .label-after {
     font-size: 9px;
   }
-}
+} */
