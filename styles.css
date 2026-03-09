@@ -165,8 +165,8 @@ button {
 
 @media (max-width: 1050px) {
   .label-after {
-    width: 90px;
-    height: 40px;
+    width: 45px;
+    height: 20px;
   }
 } 
 
@@ -179,4 +179,5 @@ button {
   .label-before, .label-after {
     font-size: 9px;
   }
+
 } */
